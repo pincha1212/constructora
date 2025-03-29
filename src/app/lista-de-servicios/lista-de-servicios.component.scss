@@ -1,0 +1,88 @@
+@use "sass:color";
+@use "../../styles.scss" as *;
+
+.services {
+  display: flex;
+  flex-direction: column;
+  align-items: center; // Centra todo el contenido
+  padding: $spacing-lg 0;
+
+  .section-title {
+    font-size: $font-size-2xl;
+    font-weight: 700;
+    color: $color-green-dark;
+    margin-bottom: $spacing-lg;
+  }
+
+  .services-list {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: $spacing-md;
+    width: 100%;
+
+    .service-card {
+      display: flex; // Usamos flexbox para dividir imagen y contenido
+      flex-direction: row; // Por defecto, la imagen a la izquierda y el contenido a la derecha
+      justify-content: space-between;
+      width: 90%;
+      max-width: 750px;
+      overflow: hidden;
+      transition: all 0.3s ease;
+      margin: $spacing-sm 0;
+
+      &:hover {
+        box-shadow: $box-shadow-md;
+      }
+
+      // Imagen
+      .service-image {
+        width: 45%;
+        height: 180px;
+        object-fit: cover;
+        border-right: 2px solid $color-gray-border; // Añadimos borde entre la imagen y el contenido
+      }
+
+      // Contenido
+      .service-details {
+        width: 55%;
+        padding: $spacing-sm;
+
+        .service-title {
+          font-size: $font-size-lg;
+          color: $color-gray-darker;
+          margin-bottom: $spacing-xs;
+          border-bottom: 2px solid $color-gray-border; 
+          padding-bottom: $spacing-xs; 
+        }
+
+        .service-price {
+          font-size: $font-size-base;
+          color: $color-primary;
+          font-weight: 600;
+          margin-bottom: $spacing-md;
+        }
+
+        .btn-reserve {
+          background-color: $button-bg;
+          color: $button-text;
+          padding: $button-padding;
+          border-radius: $button-radius;
+          box-shadow: $box-shadow-md;
+          border: none;
+          cursor: pointer;
+          transition: background-color 0.3s ease;
+
+          &:hover {
+            background-color: color.adjust($button-bg, $lightness: -10%);
+          }
+        }
+      }
+
+      // Cambiar el orden para el segundo servicio (imagen a la derecha)
+      &:nth-child(2) {
+        flex-direction: row-reverse; // La imagen pasa a la derecha
+      }
+    }
+  }
+}

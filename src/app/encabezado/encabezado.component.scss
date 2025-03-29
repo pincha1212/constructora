@@ -1,0 +1,42 @@
+@use "sass:color";
+@use "../../styles.scss" as *;
+
+header {
+  background-color: $color-gray-light;
+  padding: $spacing-sm 0;
+
+  .container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: relative;
+  }
+
+  nav {
+    display: flex;
+    gap: $spacing-md;
+
+    a {
+      font-size: $font-size-small;
+      color: $color-gray-dark;
+      text-decoration: none;
+      font-weight: 500;
+      transition: $transition-normal;
+
+      &:hover {
+        color: $color-primary;
+      }
+    }
+  }
+
+  h1 {
+    font-size: $font-size-lg;
+    font-weight: 700;
+    color: $color-green-dark;
+    text-transform: uppercase;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    white-space: nowrap;
+  }
+}

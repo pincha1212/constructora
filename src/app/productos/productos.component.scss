@@ -1,0 +1,59 @@
+@use "sass:color";
+@use "../../styles.scss" as *;
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+.main-title {
+  text-align: center;
+  font-size: $font-size-2xl;
+  font-weight: bold;
+  color: $color-green-dark;
+  margin-bottom: $spacing-lg;
+}
+
+.products-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-gap: $spacing-md;
+
+  .product-item {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center; /* Centra verticalmente el contenido */
+    text-align: left;
+
+    .product-title {
+      font-size: $font-size-xl;
+      font-weight: bold;
+      color: $color-secondary;
+      margin-bottom: $spacing-sm;
+    }
+
+    .product-description {
+      font-size: $font-size-base;
+      color: $color-gray-dark;
+    }
+  }
+
+  .product-image {
+    display: flex;
+    justify-content: center;
+
+    img {
+      max-width: 90%; /* Ajusta el tamaño máximo de la imagen */
+      height: auto;
+      max-height: 400px; /* Limita la altura máxima */
+      border-radius: $border-radius-sm;
+      box-shadow: $box-shadow-sm;
+    }
+  }
+
+  @media (max-width: 768px) {
+    grid-template-columns: 1fr;  // En pantallas pequeñas, una sola columna
+  }
+}

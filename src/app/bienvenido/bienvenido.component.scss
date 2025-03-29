@@ -1,0 +1,70 @@
+@use "sass:color";
+@use "../../styles.scss" as *;
+
+main {
+  text-align: center;
+  padding: 4rem 0;
+
+  // Tarjeta para el contenido textual
+  .card {
+    background-color: $color-gray-light;
+    padding: $spacing-xl;
+    max-width: 400px; // O el valor que prefieras para hacerla más estrecha
+    width: 100%; // Para asegurar que no se estire más allá de su contenedor
+    margin-left: auto; // Para centrar la tarjeta
+    margin-right: auto; // Para centrar la tarjeta
+    h2 {
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: $color-green-dark;
+      margin-bottom: $spacing-sm;
+    }
+
+    p {
+      font-size: 1rem;
+      color: $color-green-dark;
+      margin-bottom: $spacing-md;
+
+      span {
+        color: $color-green-dark;
+        font-weight: 700;
+      }
+    }
+
+    button {
+      background-color: $button-bg;
+      color: $button-text;
+      padding: $button-padding;
+      border-radius: $button-radius;
+      border: none;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+
+      &:hover {
+        background-color: color.adjust($button-bg, $lightness: -10%);
+      }
+    }
+  }
+}
+
+section {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: $spacing-sm;
+  padding: $spacing-md 0;
+
+  @media (min-width: 640px) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  @media (min-width: 768px) {
+    grid-template-columns: repeat(4, 1fr);
+  }
+
+  img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    border-radius: $border-radius-sm;
+  }
+}

@@ -1,0 +1,66 @@
+@use "sass:color";
+@use "../../styles.scss" as *;
+
+.about-section {
+  display: flex;
+  flex-direction: column;
+  padding: $spacing-lg 0;
+
+  // Sección 1: Imagen grande a la izquierda
+  .image-container {
+    width: 100%;
+    max-width: 800px;
+    margin-bottom: $spacing-md;
+
+    img.large-image {
+      width: 100%;
+      height: auto;
+      border-radius: $border-radius-md;
+    }
+  }
+
+  // Sección 2: Contenido (Texto + Imagen pequeña)
+  .text-container {
+    padding: $spacing-sm;
+    text-align: center;
+
+    .section-title {
+      font-size: $font-size-2xl;
+      font-weight: 700;
+      color: $color-green-dark;
+      margin-bottom: $spacing-md;
+    }
+
+    .section-text {
+      font-size: $font-size-base;
+      color: $color-gray-dark;
+      margin-bottom: $spacing-md;
+    }
+
+    .small-image-container {
+      display: flex;
+      justify-content: center;
+      margin-top: $spacing-lg;
+
+      img.small-image {
+        width: 50%;
+        max-width: 300px;
+        height: auto;
+        border-radius: $border-radius-md;
+      }
+    }
+  }
+
+  @media (min-width: 768px) {
+    flex-direction: row; // En pantallas grandes se alinea en fila
+
+    .image-container {
+      width: 50%; // Imagen ocupa el 50% del ancho
+    }
+
+    .text-container {
+      width: 50%; // Texto ocupa el otro 50%
+      text-align: left;
+    }
+  }
+}
