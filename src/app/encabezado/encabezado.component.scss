@@ -26,6 +26,7 @@ header {
 
   // Icono del menú (martillo)
   .header-icon {
+    z-index: 999;
     background: none;
     border: none;
     cursor: pointer;
