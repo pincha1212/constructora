@@ -4,6 +4,7 @@
 header {
   background-color: $color-gray-light;
   padding: $spacing-sm 0;
+  position: relative;
 
   .container {
     display: flex;
@@ -12,6 +13,46 @@ header {
     position: relative;
   }
 
+  h1 {
+    font-size: $font-size-lg;
+    font-weight: 700;
+    color: $color-green-dark;
+    text-transform: uppercase;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    white-space: nowrap;
+  }
+
+  // Icono del menú (martillo)
+  .header-icon {
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: $font-size-lg;
+    color: $color-green-dark;
+    transition: transform 0.3s ease, top 0.3s ease;
+    display: none;
+    position: absolute;
+    right: 0;
+    top: 0;
+    outline: none;
+    box-shadow: none;
+    &:hover {
+      transform: rotate(20deg);
+    }
+
+    &.active {
+      top: 100px;
+      transform: rotate(0deg);
+    }
+
+    @media (max-width: 768px) {
+      display: block;
+    }
+  }
+
+  // Menú de navegación
   nav {
     display: flex;
     gap: $spacing-md;
@@ -27,16 +68,35 @@ header {
         color: $color-primary;
       }
     }
-  }
 
-  h1 {
-    font-size: $font-size-lg;
-    font-weight: 700;
-    color: $color-green-dark;
-    text-transform: uppercase;
-    position: absolute;
-    left: 50%;
-    transform: translateX(-50%);
-    white-space: nowrap;
+    @media (max-width: 768px) {
+      display: none;
+      flex-direction: column;
+      position: absolute;
+      top: -15px;
+      left: 0;
+      right: 0;
+      background-color: $color-white;
+      padding: $spacing-md;
+      box-shadow: $box-shadow-md;
+      z-index: 1000;
+      animation: slideDown 0.3s ease forwards;
+    }
+
+    &.active {
+      display: flex;
+    }
+  }
+}
+
+// Animación de deslizamiento del menú
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
   }
 }

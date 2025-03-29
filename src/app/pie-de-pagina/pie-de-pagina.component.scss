@@ -1,0 +1,150 @@
+@use "sass:color";
+@use "../../styles.scss" as *;
+
+footer {
+  background-color: $color-gray-light;
+  padding: $spacing-xl 0;
+
+  .footer-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 $spacing-md;
+
+    @media (min-width: 768px) {
+      flex-direction: row;
+    }
+  }
+
+  .footer-column {
+    margin-bottom: $spacing-lg;
+
+    @media (min-width: 768px) {
+      margin-bottom: 0;
+    }
+  }
+
+  .footer-title {
+    font-size: $font-size-base;
+    font-weight: bold;
+    color: $color-green-dark;
+    margin-bottom: $spacing-sm;
+  }
+
+  .footer-text {
+    font-size: $font-size-small;
+    color: $color-gray-dark;
+
+    span {
+      display: block;
+    }
+  }
+
+  .footer-social {
+    margin-top: $spacing-sm;
+
+    a {
+      color: $color-gray-dark;
+      margin-right: $spacing-xs;
+      transition: $transition-normal;
+
+      &:hover {
+        color: $color-primary;
+      }
+    }
+  }
+
+  .footer-form {
+    .form-group {
+      margin-bottom: $spacing-md;
+
+      label {
+        font-size: $font-size-small;
+        color: $color-gray-dark;
+        display: block;
+        margin-bottom: $spacing-xs;
+      }
+
+      input[type="email"] {
+        width: 100%;
+        padding: $spacing-xs;
+        border: 1px solid $color-gray-border;
+        border-radius: $border-radius-sm;
+      }
+    }
+
+    .form-checkbox {
+      display: flex;
+      align-items: center;
+      cursor: pointer;
+
+      input {
+        appearance: none;
+        width: 16px;
+        height: 16px;
+        border: 2px solid $color-gray-border;
+        border-radius: $border-radius-sm;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: background-color 0.3s ease, border-color 0.3s ease;
+        cursor: pointer;
+
+        &:checked {
+          background-color: $button-bg;
+          border-color: $button-bg;
+          position: relative;
+
+          &::after {
+            content: "✔";
+            color: $button-text;
+            font-size: 12px;
+            font-weight: bold;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 100%;
+            height: 100%;
+          }
+        }
+
+        &:hover {
+          border-color: color.adjust($button-bg, $lightness: -10%);
+        }
+      }
+
+      span {
+        font-size: $font-size-small;
+        color: $color-gray-dark;
+        margin-left: $spacing-xs;
+      }
+    }
+
+    .submit-button {
+      background-color: $button-bg;
+      color: $button-text;
+      padding: $button-padding;
+      border-radius: $button-radius;
+      border: none;
+      font-size: $font-size-small;
+      font-weight: bold;
+      text-transform: uppercase;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+
+      &:hover {
+        background-color: color.adjust($button-bg, $lightness: -10%);
+      }
+    }
+  }
+
+  .footer-copyright {
+    text-align: end;
+    padding: 0 $spacing-xl;
+    font-size: $font-size-small;
+    color: $color-gray-dark;
+    margin-top: $spacing-lg;
+  }
+}
