@@ -1,4 +1,6 @@
 @use "sass:color";
+@use "sass:map";
+
 @use "../../styles.scss" as *;
 
 .container {
@@ -28,9 +30,10 @@
     text-align: left;
     transform: scale(0.95);
     transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+    cursor: pointer;
 
     &:hover {
-      transform: scale(1); 
+      transform: scale(1);
       opacity: 1;
       transition: transform 0.3s ease, opacity 0.3s ease;
     }
@@ -50,15 +53,17 @@
 
   .product-image {
     display: flex;
-    justify-content: center;    transform: scale(0.95);
+    justify-content: center;
+    transform: scale(0.95);
     transition: opacity 0.8s ease-out, transform 0.8s ease-out;
 
     img {
-      max-width: 90%;
+      max-width: 100%;
       height: auto;
       max-height: 400px;
       border-radius: $border-radius-sm;
       box-shadow: $box-shadow-sm;
+      object-fit: cover;
     }
 
     &:hover img {
@@ -71,7 +76,6 @@
     grid-template-columns: 1fr;
   }
 }
-
 
 .reveal-visible {
   opacity: 1 !important;

@@ -1,4 +1,6 @@
 @use "sass:color";
+@use "sass:map";
+
 @use "../../styles.scss" as *;
 
 .about-section {
@@ -16,6 +18,11 @@
       width: 100%;
       height: auto;
       border-radius: $border-radius-md;
+      transition: transform 0.3s ease;
+    }
+
+    &:hover img.large-image {
+      transform: scale(1.05);
     }
   }
 
@@ -47,19 +54,24 @@
         max-width: 300px;
         height: auto;
         border-radius: $border-radius-md;
+        transition: transform 0.3s ease;
+      }
+
+      &:hover img.small-image {
+        transform: scale(1.05);
       }
     }
   }
 
   @media (min-width: 768px) {
-    flex-direction: row; // En pantallas grandes se alinea en fila
-
+    flex-direction: row;
     .image-container {
-      width: 50%; // Imagen ocupa el 50% del ancho
+      width: 50%;
+      margin-bottom: 0;
     }
 
     .text-container {
-      width: 50%; // Texto ocupa el otro 50%
+      width: 50%;
       text-align: left;
     }
   }

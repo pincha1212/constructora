@@ -1,16 +1,16 @@
 <header>
     <div class="container">
         <h1>CONSTRUMAX</h1>
-
-        <!-- Botón para abrir/cerrar el menú -->
-        <button class="header-icon" [ngClass]="{'active': showNav}" (click)="toggleNav()" aria-label="Menú">
-            <i [class]="showNav ? 'fas fa-times' : 'fas fa-hammer'"></i>
-        </button>
-
-        <!-- Menú de navegación -->
-        <nav [ngClass]="{'active': showNav}">
-            <a href="#">Inicio</a>
-            <a href="#">Reserva online</a>
-        </nav>
     </div>
+
+    <!-- Botón para abrir/cerrar el menú (fuera de la "container") -->
+    <button class="header-icon" [ngClass]="{'active': showNav}" (click)="toggleNav()" aria-label="Menú">
+        <i [class]="showNav ? 'fas fa-times' : 'fas fa-hammer'"></i>
+    </button>
+
+    <!-- Menú de navegación -->
+    <nav [ngClass]="{'active': showNav}">
+        <a href="#">Inicio</a>
+        <a href="#">Reserva online</a>
+    </nav>
 </header>

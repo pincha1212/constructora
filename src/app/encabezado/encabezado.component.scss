@@ -1,16 +1,18 @@
 @use "sass:color";
+@use "sass:map";
 @use "../../styles.scss" as *;
 
 header {
   background-color: $color-gray-light;
-  padding: $spacing-sm 0;
+  padding: $spacing-sm;
   position: relative;
 
   .container {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    position: relative;
+    width: 100%;
+    padding: 0 $spacing-md;
   }
 
   h1 {
@@ -18,33 +20,32 @@ header {
     font-weight: 700;
     color: $color-green-dark;
     text-transform: uppercase;
-    position: absolute;
-    left: 50%;
-    transform: translateX(-50%);
+    margin: 0;
     white-space: nowrap;
+    flex-grow: 1;
+    text-align: center;
   }
 
   // Icono del menú (martillo)
   .header-icon {
-    z-index: 999;
+    width: 15% !important;
+    padding: 0px;
+    order: 2;
     background: none;
     border: none;
     cursor: pointer;
     font-size: $font-size-lg;
     color: $color-green-dark;
-    transition: transform 0.3s ease, top 0.3s ease;
-    display: none;
-    position: absolute;
-    right: 0;
-    top: 0;
+    transition: transform 0.3s ease;
     outline: none;
     box-shadow: none;
+    display: none; // Oculto por defecto
+
     &:hover {
       transform: rotate(20deg);
     }
 
     &.active {
-      top: 100px;
       transform: rotate(0deg);
     }
 
@@ -74,7 +75,7 @@ header {
       display: none;
       flex-direction: column;
       position: absolute;
-      top: -15px;
+      top: 60px;
       left: 0;
       right: 0;
       background-color: $color-white;
@@ -98,6 +99,6 @@ header {
   }
   to {
     opacity: 1;
-    transform: translateY(0);
+    transform: translateY(10);
   }
 }

@@ -1,4 +1,5 @@
 @use "sass:color";
+@use "sass:map";
 @use "../../styles.scss" as *;
 
 .services {
@@ -20,13 +21,13 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: $spacing-md;
     width: 100%;
+    animation: fadeIn 0.5s ease-in;
 
     .service-card {
       display: flex;
       justify-content: space-between;
-      width: 90%;
+      width: 100%;
       max-width: 750px;
       overflow: hidden;
       margin: $spacing-sm 0;
@@ -35,19 +36,24 @@
 
       &:hover {
         box-shadow: $box-shadow-md;
+        transform: translateY(-10px); // Agregar un efecto de hover suave
+        opacity: 0.9;
       }
 
       &:nth-child(1) {
         transform: translateX(-100px);
+        animation: slideInLeft 0.6s ease-out forwards;
       }
 
       &:nth-child(2) {
         flex-direction: row-reverse;
         transform: translateX(100px);
+        animation: slideInRight 0.6s ease-out forwards;
       }
 
       &:nth-child(3) {
         transform: translateY(0px);
+        animation: slideInUp 0.6s ease-out forwards;
       }
 
       // Imagen
@@ -56,6 +62,7 @@
         height: 180px;
         object-fit: cover;
         border-right: 2px solid $color-gray-border;
+        transition: transform 0.3s ease-in-out;
       }
 
       // Contenido
@@ -86,13 +93,61 @@
           box-shadow: $box-shadow-md;
           border: none;
           cursor: pointer;
-          transition: background-color 0.3s ease;
+          transition: background-color 0.3s ease, transform 0.2s ease;
 
           &:hover {
             background-color: color.adjust($button-bg, $lightness: -10%);
+            transform: scale(1.05);
+          }
+
+          &:focus {
+            outline: 3px solid $color-primary;
           }
         }
       }
     }
+  }
+}
+
+// Animaciones de entrada de las tarjetas
+@keyframes slideInLeft {
+  from {
+    transform: translateX(-100px);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+@keyframes slideInRight {
+  from {
+    transform: translateX(100px);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+@keyframes slideInUp {
+  from {
+    transform: translateY(100px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
   }
 }
