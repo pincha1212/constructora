@@ -2,10 +2,12 @@
 @use "../../styles.scss" as *;
 
 .services {
+  max-width: 100vw;
   display: flex;
   flex-direction: column;
-  align-items: center; // Centra todo el contenido
+  align-items: center;
   padding: $spacing-lg 0;
+  margin: 40px;
 
   .section-title {
     font-size: $font-size-2xl;
@@ -22,17 +24,30 @@
     width: 100%;
 
     .service-card {
-      display: flex; // Usamos flexbox para dividir imagen y contenido
-      flex-direction: row; // Por defecto, la imagen a la izquierda y el contenido a la derecha
+      display: flex;
       justify-content: space-between;
       width: 90%;
       max-width: 750px;
       overflow: hidden;
-      transition: all 0.3s ease;
       margin: $spacing-sm 0;
+      transition: transform 0.8s ease-out, opacity 0.8s ease-out,
+        box-shadow 0.3s ease;
 
       &:hover {
         box-shadow: $box-shadow-md;
+      }
+
+      &:nth-child(1) {
+        transform: translateX(-100px);
+      }
+
+      &:nth-child(2) {
+        flex-direction: row-reverse;
+        transform: translateX(100px);
+      }
+
+      &:nth-child(3) {
+        transform: translateY(0px);
       }
 
       // Imagen
@@ -40,7 +55,7 @@
         width: 45%;
         height: 180px;
         object-fit: cover;
-        border-right: 2px solid $color-gray-border; // Añadimos borde entre la imagen y el contenido
+        border-right: 2px solid $color-gray-border;
       }
 
       // Contenido
@@ -52,8 +67,8 @@
           font-size: $font-size-lg;
           color: $color-gray-darker;
           margin-bottom: $spacing-xs;
-          border-bottom: 2px solid $color-gray-border; 
-          padding-bottom: $spacing-xs; 
+          border-bottom: 2px solid $color-gray-border;
+          padding-bottom: $spacing-xs;
         }
 
         .service-price {
@@ -77,11 +92,6 @@
             background-color: color.adjust($button-bg, $lightness: -10%);
           }
         }
-      }
-
-      // Cambiar el orden para el segundo servicio (imagen a la derecha)
-      &:nth-child(2) {
-        flex-direction: row-reverse; // La imagen pasa a la derecha
       }
     }
   }

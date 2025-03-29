@@ -5,14 +5,12 @@ main {
   text-align: center;
   padding: 4rem 0;
 
-  // Tarjeta para el contenido textual
   .card {
-    background-color: $color-gray-light;
     padding: $spacing-xl;
-    max-width: 400px; // O el valor que prefieras para hacerla más estrecha
-    width: 100%; // Para asegurar que no se estire más allá de su contenedor
-    margin-left: auto; // Para centrar la tarjeta
-    margin-right: auto; // Para centrar la tarjeta
+    max-width: 400px;
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
     h2 {
       font-size: 1.5rem;
       font-weight: 700;
@@ -31,7 +29,7 @@ main {
       }
     }
 
-    button {
+    .button {
       background-color: $button-bg;
       color: $button-text;
       padding: $button-padding;
@@ -66,5 +64,6 @@ section {
     height: auto;
     object-fit: cover;
     border-radius: $border-radius-sm;
+    transform: scale(0.8) rotate(10deg); // Pequeño efecto de figurita
   }
 }

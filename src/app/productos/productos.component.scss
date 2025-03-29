@@ -24,8 +24,10 @@
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-    justify-content: center; /* Centra verticalmente el contenido */
+    justify-content: center;
     text-align: left;
+    transform: scale(0.95);
+    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
 
     .product-title {
       font-size: $font-size-xl;
@@ -43,6 +45,8 @@
   .product-image {
     display: flex;
     justify-content: center;
+    transform: scale(0.95);
+    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
 
     img {
       max-width: 90%; /* Ajusta el tamaño máximo de la imagen */
@@ -54,6 +58,6 @@
   }
 
   @media (max-width: 768px) {
-    grid-template-columns: 1fr;  // En pantallas pequeñas, una sola columna
+    grid-template-columns: 1fr; // En pantallas pequeñas, una sola columna
   }
 }
